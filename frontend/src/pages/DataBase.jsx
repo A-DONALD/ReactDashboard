@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 
 function DataBase() {
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
   useEffect(() => {
     fetch('http://localhost:8081/users')
-      .then(res => res.json())
-      .then(data => setData(data))
-      .catch(err => console.log(err));
-  })
+      .then((res) => res.json())
+      .then((data) => setData(data))
+      .catch((err) => console.log(err));
+  });
   return (
     <div>
       <thead>
@@ -29,7 +29,7 @@ function DataBase() {
         ))}
       </tbody>
     </div>
-  )
+  );
 }
 
-export default DataBase
+export default DataBase;
