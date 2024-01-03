@@ -1,44 +1,24 @@
-import {
-  BsPeopleFill,
-  BsKeyFill,
-  BsListCheck,
-  BsReverseLayoutTextSidebarReverse,
-} from 'react-icons/bs';
+import { useState } from 'react';
+import Header from '../components/Header';
+import Sidebar from '../components/Sidebar';
+import DashBoard from './DashBoard';
 
 function Home() {
-  return (
-    <main className="main-container">
-      <div className="main-title">
-        <h3>DASHBOARD</h3>
-      </div>
+  const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
 
-      <div className="main-cards">
-        <div className="card">
-          <div className="card-inner">
-            <h3>LOCATAIRES</h3>
-            <BsPeopleFill className="card_icon" />
-          </div>
-        </div>
-        <div className="card">
-          <div className="card-inner">
-            <h3>LOCATIONS</h3>
-            <BsKeyFill className="card_icon" />
-          </div>
-        </div>
-        <div className="card">
-          <div className="card-inner">
-            <h3>RESERVATION</h3>
-            <BsListCheck className="card_icon" />
-          </div>
-        </div>
-        <div className="card">
-          <div className="card-inner">
-            <h3>CARNET</h3>
-            <BsReverseLayoutTextSidebarReverse className="card_icon" />
-          </div>
-        </div>
-      </div>
-    </main>
+  const OpenSidebar = () => {
+    setOpenSidebarToggle(!openSidebarToggle);
+  };
+
+  return (
+    <div className="grid-container">
+      <Header OpenSidebar={OpenSidebar} />
+      <Sidebar
+        openSidebarToggle={openSidebarToggle}
+        OpenSidebar={OpenSidebar}
+      />
+      <DashBoard />
+    </div>
   );
 }
 
