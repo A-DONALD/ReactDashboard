@@ -1,12 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-interface DownloadBtnProps {
-    btnName: string;
-    fileURL: string;
-    dwnldName: string;
-}
-
-const DownloadButton: React.FC<DownloadBtnProps> = ({ btnName, fileURL, dwnldName }) => {
+const DownloadButton = ({ btnName, fileURL, dwnldName }) => {
     const handleDownload = () => {
         const link = document.createElement('a');
         link.href = fileURL;
