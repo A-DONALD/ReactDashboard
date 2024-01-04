@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import validation from '../scripts/RegisterValidation'
 import { Link, useNavigate } from 'react-router-dom'
-import DownloadButton from '../components/DownloadBtn'
 
 function Register() {
     const [values, setValues] = useState({
@@ -25,7 +24,10 @@ function Register() {
                     console.log(res.data);
                     navigate('/login');
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err);
+                    navigate('/500');
+                });
         }
     }
 
@@ -81,7 +83,7 @@ function Register() {
                 </form>
                 <div className="text-center">
                     <p>Have an account?
-                        <Link to="/register" className="text-blue-500 hover:underline">
+                        <Link to="/login" className="text-blue-500 hover:underline">
                             Sign in here
                         </Link>.
                     </p>

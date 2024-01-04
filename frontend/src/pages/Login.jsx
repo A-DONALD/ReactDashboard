@@ -21,12 +21,15 @@ function Login() {
                 .then(res => {
                     console.log(res.data);
                     if (res.data === "Login Succesful") {
-                        navigate('/');
+                        navigate('/home');
                     } else {
                         alert(res.data);
                     }
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err);
+                    navigate('/500');
+                });
         }
     }
 

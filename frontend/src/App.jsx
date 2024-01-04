@@ -5,6 +5,7 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import DataBase from "./pages/DataBase"
 import Home from "./pages/Home";
+import GetStarted from "./pages/GetStarted";
 
 import {
   createBrowserRouter,
@@ -14,8 +15,9 @@ import {
 } from "react-router-dom";
 
 const router = createBrowserRouter([
-  { path: "/", element: <Home /> },
+  { path: "/", element: <GetStarted /> },
   { path: "/login", element: <Login /> },
+  { path: "/home", element: <Home /> },
   { path: "/register", element: <Register /> },
   { path: "/database", element: <DataBase /> },
   { path: "/500", element: <ServerError /> },
