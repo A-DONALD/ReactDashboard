@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import validation from '../scripts/RegisterValidation'
 import { Link, useNavigate } from 'react-router-dom'
+import DownloadButton from '../components/DownloadBtn'
 
 function Register() {
     const [values, setValues] = useState({
@@ -22,7 +23,7 @@ function Register() {
             axios.post('http://localhost:8081/register', values)
                 .then(res => {
                     console.log(res.data);
-                    navigate('/register');
+                    navigate('/login');
                 })
                 .catch(err => console.log(err));
         }

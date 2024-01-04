@@ -17,70 +17,74 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
   return (
     <aside
       id="sidebar"
-      className={openSidebarToggle ? 'sidebar-responsive' : ''}
+      className={`bg-blue-500 text-white h-full fixed top-0 left-0 overflow-y-auto transition-all duration-300 ease-in-out ${openSidebarToggle ? 'w-64' : 'w-0'
+        }`}
     >
-      <div className="sidebar-title">
+      <div className="sidebar-title flex items-center justify-between p-4">
         <div className="sidebar-brand">
-          <BsFillHouseFill className="icon_header" />
+          <BsFillHouseFill className="text-2xl" />
         </div>
-        <span className="icon close_icon" onClick={OpenSidebar}>
+        <span className="cursor-pointer" onClick={OpenSidebar}>
           X
         </span>
       </div>
 
       <ul className="sidebar-list">
         <li className="sidebar-list-item">
-          <a href="">
-            <BsGrid1X2Fill className="icon" /> Dashboard </a>
-        </li>
-        <li className="sidebar-list-item">
-          <a href="">
-            <BsFillArchiveFill className="icon" /> Biens
+          <a href="" className="flex items-center py-2 px-4">
+            <BsGrid1X2Fill className="text-lg mr-2" />
+            Dashboard
           </a>
         </li>
         <li className="sidebar-list-item">
-          <a href="">
-            <BsPeopleFill className="icon" /> Locataires
+          <a href="" className="flex items-center py-2 px-4">
+            <BsFillArchiveFill className="text-lg mr-2" />
+            Biens
           </a>
         </li>
         <li className="sidebar-list-item">
-          <a href="">
-            <BsKeyFill className="icon" /> Locations
+          <a href="" className="flex items-center py-2 px-4">
+            <BsPeopleFill className="text-lg mr-2" /> Locataires
           </a>
         </li>
         <li className="sidebar-list-item">
-          <a href="">
-            <BsListCheck className="icon" /> Reservations
+          <a href="" className="flex items-center py-2 px-4">
+            <BsKeyFill className="text-lg mr-2" /> Locations
           </a>
         </li>
         <li className="sidebar-list-item">
-          <a href="">
-            <BsMenuButtonWideFill className="icon" /> Inventaires
+          <a href="" className="flex items-center py-2 px-4">
+            <BsListCheck className="text-lg mr-2" /> Reservations
           </a>
         </li>
         <li className="sidebar-list-item">
-          <a href="">
-            <BsTools className="icon" /> Etats des lieux
+          <a href="" className="flex items-center py-2 px-4">
+            <BsMenuButtonWideFill className="text-lg mr-2" /> Inventaires
           </a>
         </li>
         <li className="sidebar-list-item">
-          <a href="">
-            <BsCreditCard2Back className="icon" /> Finances
+          <a href="" className="flex items-center py-2 px-4">
+            <BsTools className="text-lg mr-2" /> Etats des lieux
           </a>
         </li>
         <li className="sidebar-list-item">
-          <a href="">
-            <BsCollection className="icon" /> Documents
+          <a href="" className="flex items-center py-2 px-4">
+            <BsCreditCard2Back className="text-lg mr-2" /> Finances
           </a>
         </li>
         <li className="sidebar-list-item">
-          <a href="">
-            <BsReverseLayoutTextSidebarReverse className="icon" /> Carnet
+          <a href="" className="flex items-center py-2 px-4">
+            <BsCollection className="text-lg mr-2" /> Documents
           </a>
         </li>
         <li className="sidebar-list-item">
-          <a href="">
-            <BsFillChatLeftTextFill className="icon" /> Intervations
+          <a href="" className="flex items-center py-2 px-4">
+            <BsReverseLayoutTextSidebarReverse className="text-lg mr-2" /> Carnet
+          </a>
+        </li>
+        <li className="sidebar-list-item">
+          <a href="" className="flex items-center py-2 px-4">
+            <BsFillChatLeftTextFill className="text-lg mr-2" /> Intervations
           </a>
         </li>
       </ul>
