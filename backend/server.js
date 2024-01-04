@@ -15,7 +15,7 @@ const db = mysql.createConnection({
 
 app.post('/login', (req, res) => {
   const sql = 'SELECT * FROM users WHERE login = ? AND password = ?';
-  db.query(sql, [req.body.login, req.body.password], (err, data) => {
+  db.query(sql, [req.body.email, req.body.password], (err, data) => {
     if (err) {
       console.log('Error Login');
       return res.json('Error Login');
@@ -31,20 +31,22 @@ app.post('/login', (req, res) => {
 });
 
 app.post('/register', (req, res) => {
-  const sql =
-    'INSERT INTO users (`id`, `firstname`, `name`, `login`, `password`) VALUES (NULL, ?, ?, ?, ?)';
-  db.query(
-    sql,
-    [req.body.firstname, req.body.name, req.body.login, req.body.password],
-    (err, data) => {
-      if (err) {
-        console.log('Error Registration');
-        return res.json('Error Registration');
-      } else {
-        console.log('Registration Succesful');
-        return res.json('Registration Succesful');
-      }
+  const sql = 'INSERT INTO users (`id`, `firstname`, `name`, `login`, `password`) VALUES (NULL, ?)';
+  const values = [
+    req.body.firstname,
+    req.body.name,
+    req.body.email,
+    req.body.password
+  ]
+  db.query(sql, [values], (err, data) => {
+    if (err) {
+      console.log('Error Registration');
+      return res.json('Error Registration');
+    } else {
+      console.log('Registration Succesful');
+      return res.json('Registration Succesful');
     }
+  }
   );
 });
 
