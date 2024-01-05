@@ -6,7 +6,8 @@ import Register from "./pages/Register"
 import DataBase from "./pages/DataBase"
 import Home from "./pages/Home";
 import GetStarted from "./pages/GetStarted";
-
+import DashBoard from "./pages/DashBoard";
+import Biens from "./pages/Biens";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -17,7 +18,14 @@ import {
 const router = createBrowserRouter([
   { path: "/", element: <GetStarted /> },
   { path: "/login", element: <Login /> },
-  { path: "/home", element: <Home /> },
+  {
+    path: "/home",
+    element: <Home />,
+    children: [
+      { path: "", element: <DashBoard /> },
+      { path: "biens", element: <Biens /> }
+    ]
+  },
   { path: "/register", element: <Register /> },
   { path: "/database", element: <DataBase /> },
   { path: "/500", element: <ServerError /> },

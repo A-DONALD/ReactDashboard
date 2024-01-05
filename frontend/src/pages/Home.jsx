@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
-import DashBoard from './DashBoard';
+import { Outlet } from 'react-router-dom';
 
 function Home() {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
@@ -17,7 +17,7 @@ function Home() {
         openSidebarToggle={openSidebarToggle}
         OpenSidebar={OpenSidebar}
       />
-      <DashBoard />
+      <Outlet />
     </div>
   );
 }

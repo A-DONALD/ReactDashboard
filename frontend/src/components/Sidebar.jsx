@@ -31,13 +31,13 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
 
       <ul className="sidebar-list">
         <li className="sidebar-list-item">
-          <a href="" className="flex items-center py-2 px-4">
+          <a href="/home" className="flex items-center py-2 px-4">
             <BsGrid1X2Fill className="text-lg mr-2" />
             Dashboard
           </a>
         </li>
         <li className="sidebar-list-item">
-          <a href="" className="flex items-center py-2 px-4">
+          <a href="/home/biens" className="flex items-center py-2 px-4">
             <BsFillArchiveFill className="text-lg mr-2" />
             Biens
           </a>
