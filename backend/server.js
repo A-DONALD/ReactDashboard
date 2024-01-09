@@ -31,13 +31,14 @@ app.post('/login', (req, res) => {
 });
 
 app.post('/register', (req, res) => {
-  const sql = 'INSERT INTO users (`id`, `firstname`, `name`, `login`, `password`) VALUES (NULL, ?)';
+  const sql =
+    'INSERT INTO users (`id`, `firstname`, `name`, `login`, `password`) VALUES (NULL, ?)';
   const values = [
     req.body.firstname,
     req.body.name,
     req.body.email,
-    req.body.password
-  ]
+    req.body.password,
+  ];
   db.query(sql, [values], (err, data) => {
     if (err) {
       console.log('Error Registration');
@@ -46,8 +47,7 @@ app.post('/register', (req, res) => {
       console.log('Registration Succesful');
       return res.json('Registration Succesful');
     }
-  }
-  );
+  });
 });
 
 app.get('/', (re, res) => {
