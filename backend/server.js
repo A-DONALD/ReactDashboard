@@ -1,16 +1,18 @@
 const express = require('express');
 const mysql = require('mysql');
 const cors = require('cors');
+const dotenv = require('dotenv');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+dotenv.config();
 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'bibliotheque',
+  host: process.env.ENV_HOST,
+  user: process.env.ENV_USER,
+  password: process.env.ENV_PASSWORD,
+  database: process.env.ENV_DATABASE,
 });
 
 app.post('/login', (req, res) => {
@@ -62,6 +64,6 @@ app.get('/users', (req, res) => {
   });
 });
 
-app.listen(8081, () => {
+app.listen(process.env.ENV_PORT, () => {
   console.log('listening');
 });
